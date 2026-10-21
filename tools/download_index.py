@@ -4,7 +4,7 @@ import sys
 from huggingface_hub import hf_hub_download
 
 # Config
-REPO_ID = "yuvis/enterprise-rag-index"
+REPO_ID = "Tejeshv11/enterprise-rag-index"
 DATA_DIR = "data"
 INDEX_DIR = "data/index"
 

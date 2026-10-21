@@ -8,7 +8,7 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           lfs: true
@@ -16,5 +16,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add hf https://yuvis:$HF_TOKEN@huggingface.co/spaces/yuvis/Enterprise-RAG-System
+          git remote add hf https://Tejeshv11:$HF_TOKEN@huggingface.co/spaces/Tejeshv11/Enterprise-RAG-System
           git push -f hf main

@@ -1,7 +1,7 @@
 # 🏢 Enterprise RAG System
 > **Production-Grade Knowledge Retrieval with Zero-Latency Startup & Hybrid Search**
 
-[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Live%20Demo-blue)](https://huggingface.co/spaces/yuvis/Enterprise-RAG-System)
+[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Live%20Demo-blue)](https://huggingface.co/spaces/Tejeshv11/Enterprise-RAG-System)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io)
@@ -67,8 +67,8 @@ To run this system locally for development:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YuvrajSinghBhadoria2/Enterprise-RAG-System.git
-cd Enterprise-RAG-System
+git clone https://github.com/TheAuror11/enterprise-rag.git
+cd enterprise-rag
 
 # 2. Install Dependencies
 pip install -r requirements.txt
@@ -108,5 +108,5 @@ streamlit run app.py
 ```
 
 ---
-**Author**: Yuvraj Singh Bhadoria
+**Author**: Tejesh Verma
 **License**: MIT

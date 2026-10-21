@@ -44,8 +44,8 @@ def prepare_data():
              try:
                 from huggingface_hub import hf_hub_download
                 os.makedirs(INDEX_DIR, exist_ok=True)
-                hf_hub_download(repo_id="yuvis/enterprise-rag-index", filename="index/bm25.pkl", repo_type="dataset", local_dir="data")
-                hf_hub_download(repo_id="yuvis/enterprise-rag-index", filename="index/doc_map.pkl", repo_type="dataset", local_dir="data")
+                hf_hub_download(repo_id="Tejeshv11/enterprise-rag-index", filename="index/bm25.pkl", repo_type="dataset", local_dir="data")
+                hf_hub_download(repo_id="Tejeshv11/enterprise-rag-index", filename="index/doc_map.pkl", repo_type="dataset", local_dir="data")
              except Exception:
                  pass
 
@@ -168,6 +168,6 @@ if prompt := st.chat_input("Ask a question about your documents..."):
 st.divider()
 st.markdown("""
 <div style='text-align: center; color: gray; font-size: 0.8em;'>
-    Enterprise RAG System | <a href='https://github.com/YuvrajSinghBhadoria2/Enterprise-RAG-System'>GitHub</a>
+    Enterprise RAG System | <a href='https://github.com/TheAuror11/enterprise-rag'>GitHub</a>
 </div>
 """, unsafe_allow_html=True)

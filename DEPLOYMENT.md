@@ -19,7 +19,7 @@
 Railway requires deploying **two separate services** from the same repository.
 
 ### Prerequisites
-*   GitHub repository: `https://github.com/YuvrajSinghBhadoria2/Enterprise-RAG-System.git`
+*   GitHub repository: `https://github.com/TheAuror11/enterprise-rag.git`
 *   Railway account: [railway.app](https://railway.app)
 *   Groq API Key
 
