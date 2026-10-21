@@ -4,7 +4,6 @@ from src.indexer.bm25_index import BM25Index
 from src.indexer.faiss_index import FaissIndex
 from src.indexer.pinecone_index import PineconeIndex
 from src.embeddings.embedder import Embedder
-import concurrent.futures
 
 class HybridRetriever:
     def __init__(self, bm25_path: str, faiss_path: str, doc_map_path: str, embedder: Embedder):
@@ -74,13 +73,9 @@ class HybridRetriever:
                     return None, None
             return None, None
 
-        # Execute in parallel
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            future_bm25 = executor.submit(run_bm25)
-            future_vector = executor.submit(run_vector)
-            
-            bm25_docs, bm25_scores = future_bm25.result()
-            dense_dists, dense_ids = future_vector.result()
+        # Run sequentially. Threading FAISS + PyTorch together segfaults on macOS OpenMP.
+        bm25_docs, bm25_scores = run_bm25()
+        dense_dists, dense_ids = run_vector()
 
         # Process BM25
         for rank, doc in enumerate(bm25_docs):
@@ -88,7 +83,7 @@ class HybridRetriever:
             scores[key] = scores.get(key, 0) + (1 / (60 + rank))
 
         # Process Dense
-        if dense_ids:
+        if dense_ids is not None and len(dense_ids) > 0:
             try:
                 # Merge using Reciprocal Rank Fusion (RRF)
                 if self.vector_db_type == "pinecone":

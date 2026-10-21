@@ -3,12 +3,13 @@ uvicorn>=0.23.0
 streamlit>=1.25.0
 pydantic>=2.0.0
 pydantic-settings>=2.0.0
-numpy<2
+numpy>=2,<3
 pandas
 faiss-cpu>=1.9.0
 rank_bm25
 sentence-transformers
 torch
+torchvision
 transformers
 openai
 python-dotenv

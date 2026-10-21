@@ -1,6 +1,11 @@
 import os
+import sys
 import glob
 from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT_DIR))
+
 from dotenv import load_dotenv
 load_dotenv()
 from typing import List
@@ -10,7 +15,7 @@ from tqdm import tqdm
 from src.ingestion.readers import get_reader
 from src.ingestion.cleaner import clean_text
 from src.ingestion.chunkers import SlidingWindowChunker
-# from src.embeddings.embedder import Embedder
+from src.embeddings.embedder import Embedder
 from src.indexer.bm25_index import BM25Index
 from src.indexer.faiss_index import FaissIndex
 from src.indexer.pinecone_index import PineconeIndex
@@ -23,7 +28,7 @@ INDEX_DIR = os.path.join(DATA_DIR, "index")
 class IngestionPipeline:
     def __init__(self):
         self.chunker = SlidingWindowChunker()
-        # self.embedder = Embedder(model_name="all-MiniLM-L6-v2")
+        self.embedder = Embedder(model_name="all-MiniLM-L6-v2")
         self.bm25_index = BM25Index()
         
         # Check Vector DB Type

@@ -3,8 +3,15 @@ Hugging Face Spaces - Enterprise RAG System
 Standalone Streamlit application
 """
 
-import streamlit as st
 import os
+
+# OpenMP/FAISS/PyTorch can segfault on macOS if these are not set before import.
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
+import streamlit as st
 import sys
 
 

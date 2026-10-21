@@ -3,6 +3,7 @@ import torch
 
 class Embedder:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2", device: str = None):
+        torch.set_num_threads(1)
         if device is None:
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
         else:
